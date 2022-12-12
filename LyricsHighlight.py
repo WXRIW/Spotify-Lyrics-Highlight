@@ -39,7 +39,7 @@ def actionGetTracksByArtist(artistID):
     return results
     
 def actionGetTracksByAlbum(albumID):
-    # Get artist's top tracks
+    # Get album tracks
     results = sp.album_tracks(albumID)
     return results
 
@@ -57,7 +57,6 @@ def processTracks(tracks, tracksInfo = ''):
             # Remove Chinese and symbols
             lyrics = re.sub(r"[\u4e00-\u9fbb]", "", lyrics)
             lyrics = re.sub(r"[`~!@#$%^&*()+=|{}:;,\\\[\\\].<>?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]", "", lyrics)
-            # lyrics = re.sub(r"[`~!@#$%^&*()+=|{}':;',\\\[\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]", "", lyrics)
             words = lyrics.replace('\n', ' ').lower().split(' ')
             for word in words:
                 word = word.strip()
